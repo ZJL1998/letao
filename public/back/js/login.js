@@ -82,7 +82,7 @@ $(function () {
       // 通过ajax进行提交请求
       $.ajax({
         type:"post",
-        url:/employee/employeeLogin,
+        url:'/employee/employeeLogin',
         data:$('#form').serialize(),
         dataType:'json',
         success:function(info){
@@ -99,13 +99,13 @@ $(function () {
             // 参数1 字段名称
             // 参数2 校验状态 VALID成功的 INVALID 失败的 NOT_VALIDTED未校验的
             // 参数3 指定校验规则 可以设置提示信息
-            $('#form').data('bootstrapvalidator').updateStatus("username","INVALID");
+            $('#form').data('bootstrapValidator').updateStatus("username","INVALID","callback");
      
           }
 
           if (info.error === 1001) {
             // alert('密码错误');
-            $('#form').data('bootstrapvalidator').updateStatus("password","INVALID","callback");
+            $('#form').data('bootstrapValidator').updateStatus("password","INVALID","callback");
           }
         }
       })
